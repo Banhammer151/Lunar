@@ -1,0 +1,9 @@
+ {
+    "token" :"#",
+    "prefix": "!",
+    "mysqlh": "#",
+    "mysqlu": "#",
+    "mysqlp": "#",
+    "mysqldb": "#",
+    "mysqlpor": "3306"
+}

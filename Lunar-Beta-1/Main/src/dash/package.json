@@ -1,0 +1,41 @@
+{
+  "name": "discord.js-dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caelinj/discord.js-dashboard.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caelinj/discord.js-dashboard/issues"
+  },
+  "homepage": "https://github.com/caelinj/discord.js-dashboard#readme",
+  "dependencies": {
+    "cookie-session": "^1.3.3",
+    "disco-oauth": "^2.9.1",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "form-data": "^2.3.2",
+    "helmet": "^3.16.0",
+    "https": "^1.0.0",
+    "level": "^4.0.0",
+    "level-session-store": "^2.2.0",
+    "node-fetch": "^2.2.0",
+    "passport": "^0.4.0",
+    "passport-discord": "^0.1.3",
+    "uid-safe": "^2.1.5"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+}
+}
