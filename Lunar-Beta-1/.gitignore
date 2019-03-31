@@ -1,0 +1,6 @@
+Main/src/dash/encryption/AddTrustExternalCARoot.crt
+Main/src/dash/encryption/SectigoRSADomainValidationSecureServerCA.crt
+Main/src/dash/encryption/USERTrustRSAAddTrustCA.crt
+Main/src/dash/encryption/lunar-labs_dev.crt
+Main/src/dash/encryption/lunar-labs_dev.csr
+Main/src/dash/encryption/private.key
