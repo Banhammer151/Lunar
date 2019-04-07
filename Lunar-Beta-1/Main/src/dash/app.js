@@ -62,6 +62,7 @@ app.get('/about', function(req, res) {
 app.get('/manage/:tagId', function(req, res) {
 
 	connection.connect();
+	// eslint-disable-next-line no-unused-vars
 	connection.query(`SELECT * FROM guilds WHERE guildid=${req.params.tagId}`, function(err, rows, fields) {
 		if (err) throw err;
 		res.send('Guild ID is ' + rows[0].guildid);
