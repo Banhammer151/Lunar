@@ -17,9 +17,12 @@
 <ul class="list-group list-group-flush">
 <% guilds.forEach(function(guild) { %>
         
-        <li class="list-group-item"><img height="50" width="50" src='<%= guild.icon%>' alt="guild icon" class="rounded-circle"><%= guild.name %><% if(guild.userPerms[3] === "ADMINISTRATOR"){ %>
-        <button type="button" class="btn btn-danger">Manage Guild</button>
- <%} %></li>
+        <% if(guild.userPerms[3] === "ADMINISTRATOR"){ %>
+        <li class="list-group-item"><img height="50" width="50" src='<%= guild.icon%>' alt="guild icon" class="rounded-circle"><%= guild.name %>
+        <form style="display: inline" action="" method="get">
+            <a href="https://lunar-labs.dev/manage/<%=guild.id%>" class="btn btn-danger" role="button">Manage Guild</a>
+          </form></li>
+ <%} %>
   
     <% }); %>
     </ul>  

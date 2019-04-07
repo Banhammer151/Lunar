@@ -1,14 +1,15 @@
 export default (client) => {
   const mysql = require("mysql");
+  const { token, mysqlh, mysqlu, mysqlp, mysqldb, mysqlpor } = require('../config.json');
 // var con = mysql.createConnection({
 //     host: client.config.mysqlh,
 //      user: client.config.mysqlu,
 //   password: client.config.mysqlp, database: client.config.mysqldb, port: client.config.mysqlpor});
   
   var pool  = mysql.createPool({
-    host: client.config.mysqlh,
-    user: client.config.mysqlu,
- password: client.config.mysqlp, database: client.config.mysqldb, port: client.config.mysqlpor});
+    host: mysqlh,
+    user: mysqlu,
+ password: mysqlp, database: mysqldb, port: mysqlpor});
 
  pool.getConnection(function(err, connection) {
   // connected! (unless `err` is set)
