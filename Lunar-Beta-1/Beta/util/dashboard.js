@@ -19,7 +19,7 @@ example, putting it in one file is a little simpler. Just *a little*.
 // Native Node Imports
 const url = require("url");
 const path = require("path");
-
+var fs = require("fs");
 // Used for Permission Resolving...
 const Discord = require("discord.js");
 
@@ -28,6 +28,10 @@ const express = require("express");
 const app = express();
 const moment = require("moment");
 require("moment-duration-format");
+var https = require("https");
+var key = fs.readFileSync("util/encryption/private.key");
+var cert = fs.readFileSync( "util/encryption/lunar-labs_dev.crt" );
+var ca = fs.readFileSync( "util/encryption/AddTrustExternalCARoot.crt" );
 
 // Express Plugins
 // Specifically, passport helps with oauth2 in general.
@@ -36,7 +40,7 @@ require("moment-duration-format");
 // (so that when you come back to the page, it still remembers you're logged in).
 const passport = require("passport");
 const session = require("express-session");
-const MongoStore = require('connect-mongo')(session);
+const MongoStore = require("connect-mongo")(session);
 const Strategy = require("passport-discord").Strategy;
 
 // Helmet is specifically a security plugin that enables some specific, useful 
@@ -373,6 +377,10 @@ module.exports = (client) => {
     client.settings.delete(guild.id);
     res.redirect("/dashboard/"+req.params.guildID);
   });
-  
-  client.site = app.listen(client.config.dashboard.port);
+  var options = {
+    key: key,
+    cert: cert,
+    ca: ca
+  };
+  client.site = https.createServer(options, app).listen(client.config.dashboard.port);
 };

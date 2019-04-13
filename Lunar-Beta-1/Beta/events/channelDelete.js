@@ -6,7 +6,7 @@ module.exports = async (client, channel) => {
   if (!channel.guild.me.hasPermission("MANAGE_CHANNELS") && !modlog) {
     console.log("The logs channel does not exist and tried to create the channel but I am lacking permissions");
   }
-  const entry = channel.guild.fetchAuditLogs({ type: "CHANNEL_CREATE" }).then(audit => audit.entries.first());
+  const entry = channel.guild.fetchAuditLogs({ type: "CHANNEL_DELETE" }).then(audit => audit.entries.first());
   let user = "";
   if ((entry.createdTimestamp > (Date.now() - 5000))) {
     user = entry.executor.username;

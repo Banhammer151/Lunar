@@ -1,6 +1,7 @@
 // This will check if the node version you are running is the required
 // Node version, if it isn't it will throw the following error to inform
 // you.
+/* eslint-disable linebreak-style */
 if (process.version.slice(1).split(".")[0] < 8) throw new Error("Node 8.0.0 or higher is required. Update Node on your system.");
 
 // Load up the discord.js library
@@ -28,17 +29,19 @@ require("./util/functions")(client);
 
 // Aliases and commands are put in collections where they can be read from,
 // catalogued, listed, etc.
+
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 
 // Now we integrate the use of Evie's awesome Enhanced Map module, which
 // essentially saves a collection to disk. This is great for per-server configs,
 // and makes things extremely easy for this purpose.
+client.points = new Enmap({name: "points"});
 client.settings = new Enmap({ 
   name: "settings",
   autoFetch: true,
   fetchAll: false,
-  cloneLevel: 'deep',
+  cloneLevel: "deep",
   ensureProps: true
 });
 

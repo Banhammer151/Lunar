@@ -6,6 +6,31 @@ module.exports = (client, message) => {
   // It's good practice to ignore other bots. This also makes your bot ignore itself
   // and not get into a spam loop (we call that "botception").
   if (message.author.bot) return;
+  if (message.guild) {
+    // We'll use the key often enough that simplifying it is worth the trouble.
+    const key = `${message.guild.id}-${message.author.id}`;
+    
+    // Triggers on new users we haven't seen before.
+    client.points.ensure(key, {
+      user: message.author.id,
+      guild: message.guild.id,
+      points: 0,
+      level: 1,
+      lastSeen: new Date()
+    });
+    
+    // Increment the points and save them.
+    client.points.inc(key, "points");
+    
+    // Calculate the user's current level
+    const curLevel = Math.floor(0.1 * Math.sqrt(client.points.get(key, "points")));
+
+    // Act upon level up by sending a message and updating the user's level in enmap.
+    if (client.points.get(key, "level") < curLevel) {
+      message.reply(`You've leveled up to level **${curLevel}**! Ain't that dandy?`);
+      client.points.set(key, curLevel, "level");
+    }
+  }
 
   // Grab the settings for this server from the PersistentCollection
   // If there is no guild, get default conf (DMs)

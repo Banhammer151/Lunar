@@ -61,7 +61,7 @@ exports.run = async (client, message, [action, key, ...value], level) => { // es
   // Otherwise, the default action is to return the whole configuration in JSON format (to be prettified!);
   } else {
     await message.channel.send(`***__Current Guild Settings__***\n\`\`\`json\n${inspect(settings)}\n\`\`\``);
-    message.channel.send(`See the Dashboard on <${client.config.dashboard.callbackURL.split("/").slice(0, -1).join("/")}>`);
+    // message.channel.send(`See the Dashboard on <${client.config.dashboard.callbackURL.split("/").slice(0, -1).join("/")}>`);
   }
 };
 

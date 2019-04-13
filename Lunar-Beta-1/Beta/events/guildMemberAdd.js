@@ -1,5 +1,5 @@
 // This event executes when a new member joins a server. Let's welcome them!
-
+/* eslint-disable linebreak-style */
 module.exports = (client, member) => {
   // Load the guild's settings
   const settings = client.getSettings(member.guild);
@@ -13,4 +13,21 @@ module.exports = (client, member) => {
   // Send the welcome message to the welcome channel
   // There's a place for more configs here.
   member.guild.channels.find("name", settings.welcomeChannel).send(welcomeMessage).catch(console.error);
+  if (settings.autorole1EN === "true") {
+    const role = member.guild.roles.find(r => r.name === settings.autorole1);
+    member.addRole(role).catch(console.error);
+  }
+  
+  if (settings.autorole2EN === "true") {
+    const role = member.guild.roles.find(r => r.name === settings.autorole2);
+    member.addRole(role).catch(console.error);
+  }
+
+  
+
+  if (settings.autorole3EN === "true") {
+    const role = member.guild.roles.find(r => r.name === settings.autorole3);
+    member.addRole(role).catch(console.error);
+  }
+ 
 };

@@ -6,3 +6,9 @@ Lunar-Beta-1/Beta/.eslintrc.json
 Lunar-Beta-1/Beta/Main/.babelrc
 Lunar-Beta-1/Beta/Main/.eslintrc
 Lunar-Beta-1/Beta/Main/.eslintrc.json
+Lunar-Beta-1/Beta/util/encryption/private.key
+Lunar-Beta-1/Beta/util/encryption/USERTrustRSAAddTrustCA.crt
+Lunar-Beta-1/Beta/util/encryption/AddTrustExternalCARoot.crt
+Lunar-Beta-1/Beta/util/encryption/SectigoRSADomainValidationSecureServerCA.crt
+Lunar-Beta-1/Beta/util/encryption/lunar-labs_dev.crt
+Lunar-Beta-1/Beta/util/encryption/lunar-labs_dev.csr
