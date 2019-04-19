@@ -1,9 +1,10 @@
+/* eslint-disable linebreak-style */
 const { get : fetch } = require("snekfetch");
 const { Attachment } = require("discord.js");
 
 const animals = {
   "cat": {
-    fetch: async () => fetch ("http://random.cat/meow"),
+    fetch: async () => fetch ("http://aws.random.cat/meow"),
     get: async (resp) => resp.body.file
   },
   "dog": {

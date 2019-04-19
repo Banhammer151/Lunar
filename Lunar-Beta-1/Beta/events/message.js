@@ -1,7 +1,8 @@
+/* eslint-disable linebreak-style */
 // The MESSAGE event runs anytime a message is received
 // Note that due to the binding of client to every event, every event
 // goes `client, other, args` when this function is run.
-
+const actions = require("../util/modactions");
 module.exports = (client, message) => {
   // It's good practice to ignore other bots. This also makes your bot ignore itself
   // and not get into a spam loop (we call that "botception").
@@ -9,7 +10,7 @@ module.exports = (client, message) => {
   if (message.guild) {
     // We'll use the key often enough that simplifying it is worth the trouble.
     const key = `${message.guild.id}-${message.author.id}`;
-    
+    actions.checkMention(client, message);
     // Triggers on new users we haven't seen before.
     client.points.ensure(key, {
       user: message.author.id,
@@ -18,7 +19,16 @@ module.exports = (client, message) => {
       level: 1,
       lastSeen: new Date()
     });
-    
+    const userkey = `${message.author.id}`;
+    client.profile.ensure(userkey, {
+      user: message.author.id,
+      name : "john or mary doe",
+      age : "18",
+      gender : "male or female",
+      about : "i'm me",
+      relationship : "single",
+      profileimg : "https://placehold.it/300x250"
+    });
     // Increment the points and save them.
     client.points.inc(key, "points");
     
@@ -35,11 +45,15 @@ module.exports = (client, message) => {
   // Grab the settings for this server from the PersistentCollection
   // If there is no guild, get default conf (DMs)
   const settings = client.getSettings(message.guild);
-
+  
+ 
   // For ease of use in commands and functions, we'll attach the settings
   // to the message object, so `message.settings` is accessible.
   message.settings = settings;
-  
+  const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
+  if (message.content.match(prefixMention)) {
+    return message.reply(`My prefix on this guild is \`${settings.prefix}\``);
+  }
   // Also good practice to ignore any message that does not start with our prefix,
   // which is set in the configuration file.
   if (message.content.indexOf(settings.prefix) !== 0) return;

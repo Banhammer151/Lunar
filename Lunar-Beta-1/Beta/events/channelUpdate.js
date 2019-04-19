@@ -7,13 +7,21 @@ module.exports = async (client, oldChannel, newChannel) => {
   if (!newChannel.guild.me.hasPermission("MANAGE_CHANNELS") && !modlog) {
     console.log("The logs channel does not exist and tried to create the channel but I am lacking permissions");
   }
-  let str = "";
-  if (oldChannel.name != newChannel.name) {str += `? Name: \`${oldChannel.name}\` **->** \`${newChannel.name}\`\n`;}
-  const embed = new Discord.RichEmbed()
-    .addField("Channel Updated", `${str}? Channel ID: ${oldChannel.id}`)
+  const entry = await newChannel.guild.fetchAuditLogs({ type: "CHANNEL_UPDATE" }).then(audit => audit.entries.first());
+  let user = "";
+  if ((entry.createdTimestamp > (Date.now() - 5000))) {
+    user = entry.executor.username;
+  }
+  const serverid = newChannel.guild.id;
+  const guild = client.guilds.get(serverid);
+  const modlogembed = new Discord.RichEmbed()
+    .setColor("#0099ff")
+    .setTitle(`A Channel ${oldChannel.name} has been Updated`)
+    .addField("New Name", `${newChannel.name}`)
+    .addField("Category", `${newChannel.parent}`)
+    .addField("Updated By", `${user}`)
     .setTimestamp()
-    .setColor("Red")
-    .setFooter("Info Sent By Lunar Bot");
-    
-  newChannel.guild.channels.find(channel => channel.name === modlog).send(`Channel ${oldChannel.name} was just updated`, embed);
+    .setFooter("Info Provided By Lunar Bot");
+  // eslint-disable-next-line no-shadow
+  guild.channels.find(channel => channel.name === modlog).send(modlogembed);
 };

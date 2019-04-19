@@ -3,31 +3,36 @@
 module.exports = (client, member) => {
   // Load the guild's settings
   const settings = client.getSettings(member.guild);
-  
-  // If welcome is off, don't proceed (don't welcome the user)
   if (settings.welcomeEnabled !== "true") return;
-
-  // Replace the placeholders in the welcome message with actual data
   const welcomeMessage = settings.welcomeMessage.replace("{{user}}", member.user.tag);
-
-  // Send the welcome message to the welcome channel
-  // There's a place for more configs here.
-  member.guild.channels.find("name", settings.welcomeChannel).send(welcomeMessage).catch(console.error);
+  member.guild.channels.find(channel => channel.name === settings.welcomeChannel).send(welcomeMessage).catch(console.error);
+  
   if (settings.autorole1EN === "true") {
     const role = member.guild.roles.find(r => r.name === settings.autorole1);
-    member.addRole(role).catch(console.error);
+    member.addRole(role).then(() => {
+      if (settings.autorole2EN === "true") {
+        const role2 = member.guild.roles.find(r => r.name === settings.autorole2);
+        member.addRole(role2).catch(console.error);
+      }
+    }).then(()=>{
+      if (settings.autorole3EN === "true") {
+        const role3 = member.guild.roles.find(r => r.name === settings.autorole3);
+        member.addRole(role3).catch(console.error);
+      }
+    }).catch(error => {
+      console.log(error);
+    });
   }
-  
-  if (settings.autorole2EN === "true") {
-    const role = member.guild.roles.find(r => r.name === settings.autorole2);
-    member.addRole(role).catch(console.error);
-  }
+    
 
   
 
-  if (settings.autorole3EN === "true") {
-    const role = member.guild.roles.find(r => r.name === settings.autorole3);
-    member.addRole(role).catch(console.error);
-  }
+
+  
+  
+
+  
+
+  
  
 };

@@ -36,7 +36,11 @@ client.aliases = new Discord.Collection();
 // Now we integrate the use of Evie's awesome Enhanced Map module, which
 // essentially saves a collection to disk. This is great for per-server configs,
 // and makes things extremely easy for this purpose.
+client.logs = new Enmap({name: "moderation"});
 client.points = new Enmap({name: "points"});
+client.profile = new Enmap({ 
+  name: "profile"
+});
 client.settings = new Enmap({ 
   name: "settings",
   autoFetch: true,
@@ -44,6 +48,7 @@ client.settings = new Enmap({
   cloneLevel: "deep",
   ensureProps: true
 });
+
 
 // Basically just an async shortcut to using a setTimeout. Nothing fancy!
 client.wait = promisify(setTimeout);

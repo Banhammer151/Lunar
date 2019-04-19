@@ -140,7 +140,6 @@ module.exports = (client) => {
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
     return ({...client.settings.get("default"), ...guildConf});
   }
-  
   // writeSettings overrides, or adds, any configuration item that is different
   // than the defaults. This ensures less storage wasted and to detect overrides.
   client.writeSettings = (id, newSettings) => {

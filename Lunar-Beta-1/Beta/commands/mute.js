@@ -22,7 +22,10 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
          * There are big differences between a user and a member
          */
       message.guild.channels.forEach((channel) => {
-        channel.overwritePermissions(user, { SEND_MESSAGES: false });
+        channel.overwritePermissions(mutedrole, {
+          SEND_MESSAGES: false
+        })         
+          .catch(console.error);
       });
       member.addRole(mutedrole).catch(console.error).then(() => {
         // We let the message author know we were able to kick the person

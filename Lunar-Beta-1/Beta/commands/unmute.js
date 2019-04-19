@@ -21,9 +21,6 @@ exports.run = async (client, message, args, level) => { // eslint-disable-line n
          * Make sure you run this on a member, not a user!
          * There are big differences between a user and a member
          */
-      message.guild.channels.forEach((channel) => {
-        channel.overwritePermissions(user, { SEND_MESSAGES: true });
-      });
       member.removeRole(mutedrole).catch(console.error).then(() => {
         // We let the message author know we were able to kick the person
         message.reply(`Successfully unmuted ${user.tag}`);
