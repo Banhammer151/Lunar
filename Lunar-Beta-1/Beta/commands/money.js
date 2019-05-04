@@ -14,7 +14,7 @@ exports.conf = {
 exports.help = {
   name: "money",
   category: "Fun",
-  description: "It... like... economy. but Wait it is!",
+  description: "Money! Wait, it's fake money for discord. Still good enough.",
   usage: "money"
 };
     
