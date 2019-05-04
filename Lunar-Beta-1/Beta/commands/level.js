@@ -14,7 +14,7 @@ exports.conf = {
 exports.help = {
   name: "level",
   category: "Fun",
-  description: "It... like... economy. but more like RPG.",
+  description: "A RPG MMO style for discord. What are you, an adventurer?",
   usage: "level"
 };
   
