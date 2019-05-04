@@ -28,7 +28,7 @@ exports.conf = {
 exports.help = {
   name: "daily",
   category: "Fun",
-  description: "Get your Coin... Only once a day please!",
+  description: "Come grab your roll of coins. Once a day use!",
   usage: "money"
 };
       
