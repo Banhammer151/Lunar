@@ -45,7 +45,7 @@ exports.conf = {
 exports.help = {
   name: "unmute",
   category: "Moderation",
-  description: "unmute A member From the Guild",
+  description: "Rips the duct tape off the user that was muted on a guild to unmute them.",
   usage: "unmute @user"
 };
   
