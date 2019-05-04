@@ -1,39 +1,41 @@
 /* eslint-disable linebreak-style */
+const Discord = require("discord.js");
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
   const mutedrole  = message.guild.roles.find(role => role.name === "Muted");
+  const settings = client.getSettings(message.guild);
+  const actionlog = settings.actionLog;
   if (!mutedrole) {
     message.guild.createRole({
       name: "Muted",
       color: "GREY",
-    }).catch(message.reply("I dont Have Permisson to Update Roles or Channels"));
-  }
-  
-  const user = message.mentions.users.first();
-  // If we have a user mentioned
-  if (user) {
-    // Now we get the member from the user
-    const member = message.guild.member(user);
-    // If the member is in the guild
-    
-    if (member) {
-      /**
-         * Kick the member
-         * Make sure you run this on a member, not a user!
-         * There are big differences between a user and a member
-         */
+    }).then(() =>{
       message.guild.channels.forEach((channel) => {
         channel.overwritePermissions(mutedrole, {
           SEND_MESSAGES: false
         })         
           .catch(console.error);
       });
-      member.addRole(mutedrole).catch(console.error).then(() => {
+    }).catch(message.reply("I dont Have Permisson to Update Roles or Channels"));
+  }  
+  const user = message.mentions.users.first();
+  // If we have a user mentioned
+  if (user) {
+    // Now we get the member from the user
+    const member = await message.guild.member(user);
+    if (member.roles.has(mutedrole.id)) return message.reply("User is Already Muted");
+    if (member) {
+      member.addRole(mutedrole).then(() => {
         // We let the message author know we were able to kick the person
         message.reply(`Successfully muted ${user.tag}`);
+      }).then(()=>{
+        const embed = new Discord.RichEmbed()
+          .setTitle("User Muted")
+          .setColor("RED")
+          .setFooter("Info Sent By Lunar")
+          .addField("Muted", `${user.tag}`)
+          .addField("Muted By", `${message.author.tag}`);
+        message.guild.channels.find(channel => channel.name === actionlog).send(embed);
       }).catch(err => {
-        // An error happened
-        // This is generally due to the bot not being able to kick the member,
-        // either due to missing permissions or role hierarchy
         message.reply("I was unable to Mute The Member");
         // Log the error
         console.error(err);
@@ -59,7 +61,7 @@ exports.conf = {
 exports.help = {
   name: "mute",
   category: "Moderation",
-  description: "Kicks A member From the Guild",
+  description: "Mutes a Member in the Guild",
   usage: "mute @user"
 };
   

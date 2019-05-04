@@ -2,6 +2,7 @@
 // The MESSAGE event runs anytime a message is received
 // Note that due to the binding of client to every event, every event
 // goes `client, other, args` when this function is run.
+const moment = require("moment");
 const actions = require("../util/modactions");
 module.exports = (client, message) => {
   // It's good practice to ignore other bots. This also makes your bot ignore itself
@@ -18,6 +19,16 @@ module.exports = (client, message) => {
       points: 0,
       level: 1,
       lastSeen: new Date()
+    });
+    client.warnings.ensure(key, {
+      user: message.author.id,
+      guild: message.guild.id,
+      warnings: 0      
+    });
+    client.money.ensure(key, {
+      user: message.author.id,
+      guild: message.guild.id,
+      money: 0
     });
     const userkey = `${message.author.id}`;
     client.profile.ensure(userkey, {
@@ -98,6 +109,23 @@ module.exports = (client, message) => {
   while (args[0] && args[0][0] === "-") {
     message.flags.push(args.shift().slice(1));
   }
+  if (cmd.help.name === "daily") {
+    const delay = 8.64e+7;
+    const start = Date.now();
+    if (client.daily.has(message.author.id)) {
+      const elapsed = Date.now() - start;
+      const remaining = delay - elapsed;
+      var time = moment(remaining).format("h:mm:ss");
+      return message.reply("Try again Later");
+    }
+    // Adds the user to the set so that they can't talk for 2.5 seconds
+    client.daily.add(message.author.id);
+    setTimeout(() => {
+      // Removes the user from the set after 2.5 seconds
+      client.daily.delete(message.author.id);
+    }, delay);}
+  
+  
   // If the command exists, **AND** the user has permission, run it.
   client.log("log", `${client.config.permLevels.find(l => l.level === level).name} ${message.author.username} (${message.author.id}) ran command ${cmd.help.name}`, "CMD");
   cmd.run(client, message, args, level);

@@ -23,5 +23,7 @@ module.exports = async (client, oldChannel, newChannel) => {
     .setTimestamp()
     .setFooter("Info Provided By Lunar Bot");
   // eslint-disable-next-line no-shadow
-  guild.channels.find(channel => channel.name === modlog).send(modlogembed);
+  guild.channels.find(channel => channel.name === modlog).send(modlogembed).catch(
+    console.log(modlog)
+  );
 };

@@ -31,7 +31,7 @@ exports.conf = {
   
 exports.help = {
   name: "tickle",
-  category: "Miscelaneous",
+  category: "Roleplaying",
   description: "tickle a user",
   usage: "tickle"
 };

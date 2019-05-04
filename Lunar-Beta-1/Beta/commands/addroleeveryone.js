@@ -31,13 +31,13 @@ exports.conf = {
   enabled: true,
   guildOnly: true,
   aliases: [],
-  permLevel: "Trial Mod"
+  permLevel: "Administrator"
 };
   
 exports.help = {
   name: "addroleeveryone",
   category: "Moderation",
-  description: "Kicks A member From the Guild",
+  description: "Adds A Role to Everyone (Please Note it will take Time)",
   usage: "addroleeveryone role"
 };
   

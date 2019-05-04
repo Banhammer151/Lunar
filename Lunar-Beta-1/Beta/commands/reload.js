@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 exports.run = async (client, message, args, level) => {// eslint-disable-line no-unused-vars
   if (!args || args.size < 1) return message.reply("Must provide a command to reload. Derp.");
 
@@ -9,7 +10,6 @@ exports.run = async (client, message, args, level) => {// eslint-disable-line no
 
   message.reply(`The command \`${args[0]}\` has been reloaded`);
 };
-
 exports.conf = {
   enabled: true,
   guildOnly: false,

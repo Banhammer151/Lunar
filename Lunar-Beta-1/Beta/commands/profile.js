@@ -56,7 +56,7 @@ exports.conf = {
 
 exports.help = {
   name: "profile",
-  category: "user",
+  category: "Fun",
   description: "View or change Your Profile for your server.",
   usage: "set <view/get/edit> <key> <value>"
 };

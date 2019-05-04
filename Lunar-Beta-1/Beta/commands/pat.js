@@ -29,7 +29,7 @@ exports.conf = {
   
 exports.help = {
   name: "pat",
-  category: "Miscelaneous",
+  category: "Roleplaying",
   description: "pat a user",
   usage: "pat"
 };
