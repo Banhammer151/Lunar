@@ -32,7 +32,7 @@ exports.conf = {
 exports.help = {
   name: "hug",
   category: "Roleplaying",
-  description: "hug a user",
+  description: "Give a user a hug. How nice!",
   usage: "hugs"
 };
   
