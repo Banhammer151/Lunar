@@ -38,7 +38,7 @@ exports.conf = {
 exports.help = {
   name: "ban",
   category: "Moderation",
-  description: "Bans a User From The Guild",
+  description: "Bans a user from a guild.",
   usage: "ban @User"
 };
   
