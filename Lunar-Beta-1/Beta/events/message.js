@@ -33,11 +33,11 @@ module.exports = (client, message) => {
     const userkey = `${message.author.id}`;
     client.profile.ensure(userkey, {
       user: message.author.id,
-      name : "john or mary doe",
+      name : "John? Mary Doe? Who knows.",
       age : "18",
-      gender : "male or female",
-      about : "i'm me",
-      relationship : "single",
+      gender : "Male? Female?",
+      about : "Hey look! Something about me! Wow!",
+      relationship : "Single and ready to mingle.",
       profileimg : "https://placehold.it/300x250"
     });
     // Increment the points and save them.
