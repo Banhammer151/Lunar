@@ -46,7 +46,7 @@ exports.conf = {
 exports.help = {
   name: "kick",
   category: "Moderation",
-  description: "Kicks A member From the Guild",
+  description: "Put on a boot and kick a member from the guild!",
   usage: "kick @user"
 };
   
