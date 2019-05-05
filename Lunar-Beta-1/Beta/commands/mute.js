@@ -61,7 +61,7 @@ exports.conf = {
 exports.help = {
   name: "mute",
   category: "Moderation",
-  description: "Mutes a Member in the Guild",
+  description: "Grab the duct tape and turn a member into a mute in a guild.",
   usage: "mute @user"
 };
   
