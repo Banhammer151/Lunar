@@ -41,7 +41,7 @@ exports.conf = {
 exports.help = {
   name: "warn",
   category: "Moderation",
-  description: "self explanitory really",
+  description: "Sir I am going to have to warn you. Give an user a warning.",
   usage: "warn"
 };
       
