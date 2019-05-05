@@ -12,3 +12,10 @@ Lunar-Beta-1/Beta/util/encryption/AddTrustExternalCARoot.crt
 Lunar-Beta-1/Beta/util/encryption/SectigoRSADomainValidationSecureServerCA.crt
 Lunar-Beta-1/Beta/util/encryption/lunar-labs_dev.crt
 Lunar-Beta-1/Beta/util/encryption/lunar-labs_dev.csr
+Lunar-Beta-1/stable/util/encryption/AddTrustExternalCARoot.crt
+Lunar-Beta-1/stable/util/encryption/AddTrustExternalCARoot.crt
+Lunar-Beta-1/stable/util/encryption/SectigoRSADomainValidationSecureServerCA.crt
+Lunar-Beta-1/stable/util/encryption/lunar-labs_dev.crt
+Lunar-Beta-1/stable/util/encryption/private.key
+Lunar-Beta-1/stable/util/encryption/lunar-labs_dev.csr
+Lunar-Beta-1/stable/util/encryption/USERTrustRSAAddTrustCA.crt
