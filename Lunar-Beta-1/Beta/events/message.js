@@ -39,7 +39,8 @@ module.exports = (client, message) => {
       profileimg: "https://placehold.it/300x250"
     });
     client.drops.ensure(message.guild.id, {
-      pick: "false"
+      pick: "false",
+      messagesent: "false"
     });
     // Increment the points and save them.
     client.points.inc(key, "points");
@@ -76,13 +77,16 @@ module.exports = (client, message) => {
     client.money.set(key, moneyuser, "money");
     message.channel.send(`${message.author.tag} Picked up ${moneygained} they now have ${moneyuser}`).then(msg =>{
       msg.delete(10000);
+      
     }).catch(
       console.log("error")
     );
     client.drops.set(message.guild.id, "false", "pick");
+    client.drops.set(message.guild.id, "false", "messagesent");
   }
-  if (client.drops.get(message.guild.id, "pick") === "true") {
+  if (client.drops.get(message.guild.id, "pick") === "true" && client.drops.get(message.guild.id, "messagesent") === "false") {
     message.reply("I dropped Some Money. Who Will Get it? Type Pick to pick it up");
+    client.drops.set(message.guild.id, "true", "messagesent");
   }
   var d = Math.random() * 100;
   if (d < 5) {
