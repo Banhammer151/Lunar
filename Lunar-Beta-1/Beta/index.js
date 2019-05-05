@@ -34,14 +34,13 @@ client.aliases = new Discord.Collection();
 // Now we integrate the use of Evie's awesome Enhanced Map module, which
 // essentially saves a collection to disk. This is great for per-server configs,
 // and makes things extremely easy for this purpose.
-client.logs = new Enmap({name: "moderation"});
-client.warnings = new Enmap({name: "warnings"});
-client.money = new Enmap({name: "money"});
-client.points = new Enmap({name: "points"});
-client.profile = new Enmap({ 
-  name: "profile"
-});
-client.settings = new Enmap({ 
+client.drops = new Enmap({ name: "drops" });
+client.logs = new Enmap({ name: "moderation" });
+client.warnings = new Enmap({ name: "warnings" });
+client.money = new Enmap({ name: "money" });
+client.points = new Enmap({ name: "points" });
+client.profile = new Enmap({ name: "profile" });
+client.settings = new Enmap({
   name: "settings",
   autoFetch: true,
   fetchAll: false,
@@ -88,7 +87,7 @@ const init = async () => {
   // Here we login the client.
   client.login(client.config.token);
 
-// End top-level async/await function.
+  // End top-level async/await function.
 };
 
 init();
