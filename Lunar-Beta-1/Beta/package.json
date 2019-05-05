@@ -1,0 +1,51 @@
+{
+  "//1": "describes your app and its dependencies",
+  "//2": "https://docs.npmjs.com/files/package.json",
+  "//3": "updating this file will download and update your packages",
+  "name": "hello-express",
+  "version": "0.0.1",
+  "description": "A simple Node app built on Express, instantly up and running.",
+  "main": "server.js",
+  "scripts": {
+    "start": "pm2 kill && pm2 start kanoriShardingManager.js"
+  },
+  "dependencies": {
+    "discord.js-commando": "^0.10.0",
+    "mathjs": "^5.0.0",
+    "discord.js": "^11.3.2",
+    "cheerio": "^0.22.0",
+    "canvas": "next",
+    "microtime": "^2.1.8",
+    "express": "^4.16.0",
+    "weather-js": "^2.0.0",
+    "npm-api-util": "1.0.1",
+    "google-translate-api": "^2.3.0",
+    "mongodb": "^2.2",
+    "commando-provider-mongo": "^1.0.0",
+    "dblapi.js": "^2.1.0",
+    "listcord": "^1.0.0",
+    "os-utils": "^0.0.14",
+    "cats-js": "^1.0.2",
+    "triggered-module-api": "^0.1.1",
+    "mongoose": "^5.2.1",
+    "btoa": "^1.2.1",
+    "node-fetch": "^2.1.2",
+    "zlib-sync": "^0.1.4",
+    "uws": "^10.148.1",
+    "bufferutil": "^4.0.0",
+    "scrape-mdn": "^1.0.2",
+    "pm2": "^3.0.0"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/hello-express"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
+}
