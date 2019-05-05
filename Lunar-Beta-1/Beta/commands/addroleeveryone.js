@@ -37,7 +37,7 @@ exports.conf = {
 exports.help = {
   name: "addroleeveryone",
   category: "Moderation",
-  description: "Adds A Role to Everyone (Please Note it will take Time)",
+  description: "Add a role to everyone. (Please Note it will take Time)",
   usage: "addroleeveryone role"
 };
   
