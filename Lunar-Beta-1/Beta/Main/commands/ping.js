@@ -13,6 +13,6 @@ exports.conf = {
 exports.help = {
   name: "ping",
   category: "Miscelaneous",
-  description: "It... like... pings. Then Pongs. And it\"s not Ping Pong.",
+  description: "You ping, bot pongs. Though, it isn't Ping Pong.",
   usage: "ping"
 };
