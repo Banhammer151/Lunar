@@ -1,8 +1,0 @@
-{
-    "port": 5134,
-
-    "clientId": "#",
-    "clientSecret": "#",
-    "scopes": ["identify", "guilds"],
-    "redirectUri": "https://lunar-labs.dev:5134/authorize/callback"
-}
