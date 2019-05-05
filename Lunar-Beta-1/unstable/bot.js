@@ -17,8 +17,8 @@ client.on("message", message => {
   const args = message.content.slice(prefix.length).split(/ +/);
   const commandName = args.shift().toLowerCase();
 
-  const command = client.commands.get(commandName)
-		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+  const command = client.commands.get(commandName) ||
+        client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
   if (!command) return;
 
@@ -63,7 +63,7 @@ client.on("message", message => {
     message.reply("there was an error trying to execute that command!");
   }
 });
-client.on("ready", () =>{
-  client.user.setPresence({game: {name: `${client.guilds.size} Servers`, type:0}});
+client.on("ready", () => {
+  client.user.setPresence({ game: { name: `${client.guilds.size} Servers`, type: 0 } });
 });
 client.login(config.token);
