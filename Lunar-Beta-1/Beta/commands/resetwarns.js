@@ -28,7 +28,7 @@ exports.conf = {
 exports.help = {
   name: "resetwarnings",
   category: "Moderation",
-  description: "check warnings",
+  description: "Sir we are going to have to see your tickets. Check the existing warnings!",
   usage: "resetwarnings @user"
 };
       
