@@ -18,14 +18,14 @@ class MutedCommand extends Command {
   async run (msg, args) {
     var i = 0;
     var user = []
-    var kdole = msg.guild.roles.find('name', 'Kanori Muted')
-    if (!kdole) return msg.channel.send(":x: | I don't found `Kanori Muted` role! Mute someone to auto-create this role.");
+    var kdole = msg.guild.roles.find('name', 'Lunar Muted')
+    if (!kdole) return msg.channel.send(":x: | I don't found `Lunar Muted` role! Mute someone to auto-create this role.");
     kdole.members.forEach(async g => {
       await user.push(g.user.tag)
     });
     if (user.length <= 0) return msg.channel.send(":x: | No muted users found.")
     var embed = new RichEmbed()
-    embed.setTitle("Users muted with Kanori | "+ user.length +" user(s) ")
+    embed.setTitle("Users muted with Lunar | "+ user.length +" user(s) ")
     embed.setColor(0xFF00F0)
     embed.setFooter(msg.guild.name, msg.guild.iconURL)
     while (i < user.length) {

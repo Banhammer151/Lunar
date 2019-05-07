@@ -20,20 +20,10 @@ const ALIGN = {
 };
 // Loading the font (Whitney Bold)
 console.log("Loading assets for: Whitney Bold");
-if (!fs.existsSync("./whitney-bold.ttf")) {
-  get("https://cdn.glitch.com/2a3b49aa-7261-4319-ac8a-35251c2672d8%2Fwhitneyhtf-bold.ttf?1530283240370").then(g => {
-    var file = g.body;
-    console.log("Downloading Whitney bold...");
-    fs.writeFile("whitney-bold.ttf", file, function(e) {
-      if (e) console.error(e);
-      registerFont("./whitney-bold.ttf", { family: "Whitney", weight: "Bold" });
-      console.log("Whitney Bold carregada e baixada com sucesso.");
-    });
-  });
-} else {
-  registerFont("./whitney-bold.ttf", { family: "Whitney", weight: "Bold" });
-  console.log("Whitney Bold carregado.");
-}
+
+registerFont("./src/fonts/whitney-bold.ttf", { family: "Whitney", weight: "Bold" });
+console.log("Whitney Bold carregado.");
+
 
 module.exports = class CanvasUtils {
   static loadHelper() {

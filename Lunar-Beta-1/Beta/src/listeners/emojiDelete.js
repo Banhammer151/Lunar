@@ -7,7 +7,7 @@ exports.run = async (user) => {
       .setColor(0xFF00F0)
       .setTitle("Emoji deleted!")
       .addField("Name", ""+ user.name +" ("+ user.id +")")
-      .setAuthor("Kanori Event-log")
+      .setAuthor("Lunar Event-log")
       .setImage(user.url)
       user.client.guilds.get(user.guild.id).channels.get(guildConf.eventLogChannel).send(embedEventolog)
     }

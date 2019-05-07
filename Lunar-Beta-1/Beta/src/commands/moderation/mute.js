@@ -38,10 +38,10 @@ class MuteCommand extends Command {
           try {
             user.user.send("You got muted from "+ msg.guild.name +"!\n**Reason:** `"+ reason +"`\n**Time:** "+ time +" minute\(s\)");
           } catch(a) {}
-          var muteRole = message.guild.roles.find("name", "Kanori Muted");
+          var muteRole = message.guild.roles.find("name", "Lunar Muted");
           if (!muteRole) {
             message.guild.createRole({
-              name: "Kanori Muted",
+              name: "Lunar Muted",
               permissions: []
             }).then(async (role) => {
               muteRole = role;

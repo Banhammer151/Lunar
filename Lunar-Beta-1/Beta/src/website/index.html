@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html>
-<title>Home | Kanori</title>
+<title>Home | Lunar</title>
 <head>
   <link rel="shortcut icon" href="https://cdn.discordapp.com/avatars/461552010240589824/3affaa174dce0795b7597e5c2dc7d785.png?size=2048"/> 
-<meta name="description" content="👋 | Heya! My name is Kanori, a 4-fun bot for Discord."> 
-<meta property="og:site_name" content="Kanori Website"> 
-<meta property="og:description" content="👋 | Heya! My name is Kanori, a 4-fun bot for Discord."> 
-<meta property="og:title" content="Kanori Website | Home"> 
+<meta name="description" content="👋 | Heya! My name is Lunar, a 4-fun bot for Discord."> 
+<meta property="og:site_name" content="Lunar Website"> 
+<meta property="og:description" content="👋 | Heya! My name is Lunar, a 4-fun bot for Discord."> 
+<meta property="og:title" content="Lunar Website | Home"> 
   <meta name="theme-color" content="#FF00F0"/>
 <meta property="og:image" content="https://cdn.discordapp.com/avatars/461552010240589824/3affaa174dce0795b7597e5c2dc7d785.png?size=2048">
 </head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 body, html {
@@ -35,81 +34,64 @@ body, html {
 <body>
 
 <!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar w3-white w3-card" id="myNavbar">
-    <a href="#home" class="w3-bar-item w3-button">Kanori</a>
-    <!-- Right-sided navbar links -->
-    <div class="w3-right w3-hide-small">
-      <a href="dashboard.html" class="w3-bar-item w3-button">Dashboard</a>
-      <a href="https://discord.gg/fYv3tnc" class="w3-bar-item w3-button">Support Server</a>
-      <a href="https://discordapp.com/oauth2/authorize?client_id=461552010240589824&permissions=8&scope=bot" class="w3-bar-item w3-button">Invite me</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Lunar Labs</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="https://discordapp.com/oauth2/authorize?&client_id=480838566470221854&scope=bot&permissions=8">Invite Lunar</a>
+        <a class="nav-item nav-link" href="https://discord.gg/tHec5QW">Support Server</a>
+        <a class="nav-item nav-link disabled" href="#">Disabled</a>
+      </div>
     </div>
-    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-      <i class="fa fa-bars"></i>
-    </a>
-  </div>
-</div>
-
-<!-- Sidebar on small screens when clicking the menu icon -->
-<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-  <a href="dashboard.html" onclick="w3_close()" class="w3-bar-item w3-button">Dashboard</a>
-  <a href="https://discord.gg/fYv3tnc" onclick="w3_close()" class="w3-bar-item w3-button">Support Server</a>
-  <a href="https://discordapp.com/oauth2/authorize?client_id=461552010240589824&permissions=8&scope=bot" onclick="w3_close()" class="w3-bar-item w3-button">Invite me</a>
-</nav>
-
-<!-- Header with full-height image -->
-<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
-  <div class="w3-display-left w3-text-white" style="padding:48px">
-    <span class="w3-jumbo w3-hide-small">A multi-function bot for bigger comunnity</span><br>
-    <span class="w3-xxlarge w3-hide-large w3-hide-medium">Build with Node.JS and Commando framework</span><br>
-    <span class="w3-large">Best performance for better functions.</span>
-    <p><a href="https://discordapp.com/oauth2/authorize?client_id=461552010240589824&permissions=8&scope=bot" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Try Kanori today</a></p>
-  </div> 
-  
-</header>
+  </nav>
+<header>
+  <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Lunar</h1>    
+      <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+      <hr class="my-4">
+      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="https://discordapp.com/oauth2/authorize?&client_id=480838566470221854&scope=bot&permissions=8" role="button">Invite Lunar Today</a>
+      </p>
+    </div>
+  </header>
 
 <!-- About Section -->
-<div class="w3-container" style="padding:128px 16px" id="about">
-  <h3 class="w3-center">About Kanori</h3>
-  <p class="w3-center w3-large">Kanori is a modular 4-fun, utility and moderation bot. Kanori uses Commando framework for better performace.</p>
-  <div class="w3-row-padding w3-center" style="margin-top:64px">
-    <div class="w3-quarter">
-      <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
-      <p class="w3-large">Dashboard</p>
-      <p>The Kanori dashboard is WIP (aka work in progress). On the dashboard you can change Kanori prefix, turn on/off commands, enable and disable commands, etc.</p>
+<div class="container" style="padding:128px 16px" id="about">
+  <h3 class="center">About Lunar</h3>
+  <p class="center large">Lunar is a modular 4-fun, utility and moderation bot. Lunar uses Commando framework for better performace.</p>
+  <div class="row-padding center" style="margin-top:64px">
+    <div class="col">
+      <i class="fa fa-heart margin-bottom jumbo"></i>
+      <p class="large">Built with Love</p>
+      <p>Lunar is designed to have the best quality possible, so, if you want help me you can join the support server and talk with me!</p>
     </div>
-    <div class="w3-quarter">
-      <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">Build with Love</p>
-      <p>Kanori is designed to have the best quality possible, so, if you want help me you can join the support server and talk with me!</p>
-    </div>
-    <div class="w3-quarter">
-      <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
+    <div class="col">
+      <i class="fa fa-diamond margin-bottom w3-jumbo"></i>
       <p class="w3-large">AIO</p>
-      <p>Kanori is All-In-One, this means that Kanori can do (almost) everything, as role manage, temp mute or giveaways.</p>
+      <p>Lunar is All-In-One, this means that Lunar can do (almost) everything, as role manage, temp mute or giveaways.</p>
     </div>
-    <div class="w3-quarter">
-      <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">Code quality</p>
-      <p>Kanori source-code is the most perfect possible. Using ES8 functions, as Promises and async/await, kanori source-code is workaround-free.</p>
+    <div class="col">
+      <i class="fa fa-cog margin-bottom jumbo"></i>
+      <p class="large">Code quality</p>
+      <p>Lunar source-code is the most perfect possible. Using ES8 functions, as Promises and async/await, Lunar source-code is workaround-free.</p>
     </div>
   </div>
 </div>
 
 <!-- Promo Section - "We know design" -->
-<div class="w3-container w3-light-grey" style="padding:128px 16px">
-  <div class="w3-row-padding">
-    <div class="w3-col m6">
-      <h3>Add Kanori to your server</h3>
-      <p>You can find Kanori on DBL or another bot list. If you will add Kanori on your server, thank you! Adding Kanori, you are helping me with almost everything!</p>
-      <p><a href="https://discordapp.com/oauth2/authorize?client_id=461552010240589824&permissions=8&scope=bot" class="w3-button w3-black"><i class="fa fa-th"> </i>Add now</a></p>
-    </div>
-    <div class="w3-col m6">
-      <img class="w3-image w3-round-large" src="https://cdn.discordapp.com/avatars/461552010240589824/3affaa174dce0795b7597e5c2dc7d785.png?size=2048" alt="Buildings" width="700" height="394">
-    </div>
+<div class="container light-grey" style="padding:128px 16px">
+  <div class="row-padding">
+    <div class="col">
+      <h3>Add Lunar to your server</h3>
+      <p>You can find Lunar on DBL or another bot list. If you will add Lunar on your server, thank you! Adding Lunar, you are helping me with almost everything!</p>
+      <p><a href="https://discordapp.com/oauth2/authorize?&client_id=480838566470221854&scope=bot&permissions=8" class="w3-button w3-black"><i class="fa fa-th"> </i>Add now</a></p>
+    </div>    
   </div>
 </div>
         
@@ -117,6 +99,8 @@ body, html {
 To use this code on your website, get a free API key from Google.
 Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
 -->
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html> 

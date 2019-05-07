@@ -37,8 +37,8 @@ class RoleAllCommand extends Command {
       var voted = await checkVote(egito.body)
       if(!voted) return msg.channel.send('Hey! In order to use this command, please upvote me on Listcord! <:listcord:462350611854262282>\nhttps://listcord.com/bot/461552010240589824');
   
-      var kanoriRole = msg.guild.members.get(msg.client.user.id).highestRole
-      if (role.position >= kanoriRole.position) return msg.channel.send("I can't apply that role: This role is higher than mine or equal! Please give me a role better than the role that you want apply.");
+      var LunarRole = msg.guild.members.get(msg.client.user.id).highestRole
+      if (role.position >= LunarRole.position) return msg.channel.send("I can't apply that role: This role is higher than mine or equal! Please give me a role better than the role that you want apply.");
       var now = Date.now()
       var z = 0
       msg.channel.send("Ok, adding the role `"+ role.name +"` to "+ msg.guild.members.size +" members. Please be patient! This can take up 10 minutes.");

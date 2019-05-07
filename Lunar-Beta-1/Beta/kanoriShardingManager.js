@@ -2,7 +2,7 @@
 var { ShardingManager } = require("discord.js");
 /*const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
-console.log("Loading Kanori clusters...")
+console.log("Loading Lunar clusters...")
 if (cluster.isMaster) {
   console.log(`Master ${process.pid} is running`);
 
@@ -22,20 +22,20 @@ if (cluster.isMaster) {
   console.log(`Worker ${process.pid} started`);
 */
 var Website = require("./src/util/WebsiteLoader");
-var kanoriWebsite = new Website();
-var kanoriManager = new ShardingManager("./kanori.js", { totalShards: 2, respawn: true });
+var LunarWebsite = new Website();
+var LunarManager = new ShardingManager("./Lunar.js", { totalShards: 2, respawn: true });
 
-console.log("Loading Kanori shards...");
+console.log("Loading Lunar shards...");
 
-kanoriManager.on("launch", (shard) => {
+LunarManager.on("launch", (shard) => {
   console.log("Loading shard "+ shard.id);
 });
 
-kanoriManager.on("message", (shard, msg) => {
+LunarManager.on("message", (shard, msg) => {
   console.log("Eval for Shard "+ shard.id +":\nEvaluted: "+ msg._eval +"\nResult: "+ msg._result);
 });
 
-kanoriManager.spawn().then(() => {
+LunarManager.spawn().then(() => {
   console.log("Success spawning all shards");
 });
 console.log("Clusters okay!");

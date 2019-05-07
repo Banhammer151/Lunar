@@ -1,12 +1,13 @@
+/* eslint-disable linebreak-style */
 const { Command } = require("discord.js-commando");
 
 const clapifyer = function(string) {
-    var array = string.split("")
-    return array.join(" 👏 ");
-}
+  var array = string.split("");
+  return array.join(" 👏 ");
+};
 
 class ClapifyCommand extends Command {
-  constructor (client) {
+  constructor(client) {
     super (client, {
       name: "clapify",
       aliases: ["clap"],
@@ -16,8 +17,8 @@ class ClapifyCommand extends Command {
       args: [{ key: "phrase", prompt: "What I should turn into claps?", type: "string" }]
     });
   }
-  async run (msg, { phrase }) {
+  async run(msg, { phrase }) {
     msg.channel.send(clapifyer(phrase));
   }
 }
-module.exports = ClapifyCommand
+module.exports = ClapifyCommand;

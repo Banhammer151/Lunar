@@ -12,7 +12,7 @@ class UserDB {
     mongoose.connect(uri, { useNewUrlParser: true });
     var conec = mongoose.connection;
     conec.on("error", (e) => console.warn(e));
-    conec.once("open", () => console.log("[KanoriUserDB] Connected."));
+    conec.once("open", () => console.log("[LunarUserDB] Connected."));
   }
   writeUser(id, obj) {
     return new Promise (function(res, rej) {

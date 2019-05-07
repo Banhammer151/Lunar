@@ -13,7 +13,7 @@ class InviteCommand extends Command {
   async run (msg) {
     var { RichEmbed } = require ('discord.js');
     var embed = new RichEmbed ()
-    .setTitle("Add Kanori to your guild!")
+    .setTitle("Add Lunar to your guild!")
     .setDescription("You can add me [clicking here!](https://discordapp.com/api/oauth2/authorize?client_id=461552010240589824&permissions=8&scope=bot) ")
     .addField(":warning: Warning", "In order to use all functions, you need give me the Administrator permission.")
     .setColor(0xFF00F0)

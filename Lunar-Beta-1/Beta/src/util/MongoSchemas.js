@@ -1,4 +1,5 @@
-var mongoose = require('mongoose')
+/* eslint-disable linebreak-style */
+var mongoose = require("mongoose");
 
 
 var userSchema = new mongoose.Schema({
@@ -31,7 +32,7 @@ var userSchema = new mongoose.Schema({
   },
   sobremim: {
     type: String,
-    default: "Change this text using @Kanori aboutme."
+    default: "Change this text using @Lunar aboutme."
   },
   background: {
     type: String,
@@ -39,13 +40,13 @@ var userSchema = new mongoose.Schema({
   },
   marry: {
     type: String,
-    default: 'not'
+    default: "not"
   },
   banned: {
     type: Boolean,
     default: false
   }
-})
+});
 
 var serverSchema = new mongoose.Schema({
   eventLog: {
@@ -75,10 +76,10 @@ var serverSchema = new mongoose.Schema({
     type: Array,
     default: []
   }
-})
+});
 
-var modelUsers = mongoose.model("users", userSchema)
-var modelGuilds = mongoose.model("guilds", serverSchema)
+var modelUsers = mongoose.model("users", userSchema);
+var modelGuilds = mongoose.model("guilds", serverSchema);
 
-exports.users = modelUsers
-exports.guilds = modelGuilds
+exports.users = modelUsers;
+exports.guilds = modelGuilds;

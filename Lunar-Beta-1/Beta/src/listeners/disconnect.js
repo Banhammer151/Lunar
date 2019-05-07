@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 exports.run = () => {
-  console.log("Kanori got disconnected! Trying to reconnect all shards!");
+  console.log("Lunar got disconnected! Trying to reconnect all shards!");
 }

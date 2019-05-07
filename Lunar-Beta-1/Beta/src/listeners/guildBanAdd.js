@@ -7,7 +7,7 @@ exports.run = async (guild, user) => {
       .setColor(0xFF00F0)
       .setTitle("New banned user!")
       .addField("Username", ""+ user.username +" ("+ user.id +")")
-      .setAuthor("Kanori Event-log")
+      .setAuthor("Lunar Event-log")
       user.client.guilds.get(guild.id).channels.get(guildConf.eventLogChannel).send(embedEventolog)
     }
 }

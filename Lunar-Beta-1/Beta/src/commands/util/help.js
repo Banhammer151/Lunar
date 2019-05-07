@@ -34,11 +34,11 @@ module.exports = class HelpCommand extends Command {
 		if (!args.command || args.command === "") {
       var cmdArray = msg.client.registry.commands.array()
       var embed = new RichEmbed ()
-      .setTitle("Kanori Help")
+      .setTitle("Lunar Help")
       .setAuthor(msg.client.user.username, msg.client.user.avatarURL)
       .setFooter("React on 📖 to see more commands or 🐱 to... just, don't react!", msg.author.avatarURL)
       .setColor("RANDOM")
-      .setDescription("Heya! I'm Kanori, a kawaii bot for helping you with your server and making fun of users some times.\n**I have "+ msg.client.registry.commands.size +" commands (and counting!)**\nFor help with a command, use help commandName")
+      .setDescription("Heya! I'm Lunar, a kawaii bot for helping you with your server and making fun of users some times.\n**I have "+ msg.client.registry.commands.size +" commands (and counting!)**\nFor help with a command, use help commandName")
       var toShow = []
       var removedcmds = []
         while (cmdArray.length > 50) {
@@ -64,8 +64,8 @@ module.exports = class HelpCommand extends Command {
         collector.on('collect', async (r) => {
           switch (r.emoji.name) {
             case '📖':
-              embedo.setTitle("Kanori Help")
-              embedo.setDescription("Heya! I'm Kanori, a kawaii bot for helping you with your server and making fun of users some times.\n**I have "+ msg.client.registry.commands.size+" commands. (and counting!)**");
+              embedo.setTitle("Lunar Help")
+              embedo.setDescription("Heya! I'm Lunar, a kawaii bot for helping you with your server and making fun of users some times.\n**I have "+ msg.client.registry.commands.size+" commands. (and counting!)**");
               embedo.setColor("RANDOM")
               embedo.setAuthor(msg.client.user.username, msg.client.user.avatarURL)
               for (var i = 0; i < removedcmds.length; i++) {
