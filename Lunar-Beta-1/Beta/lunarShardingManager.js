@@ -22,6 +22,7 @@ if (cluster.isMaster) {
   console.log(`Worker ${process.pid} started`);
 */
 var Website = require("./src/util/WebsiteLoader");
+// eslint-disable-next-line no-unused-vars
 var LunarWebsite = new Website();
 var LunarManager = new ShardingManager("./Lunar.js", { totalShards: 2, respawn: true });
 
