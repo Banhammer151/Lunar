@@ -1,5 +1,5 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable linebreak-style */
+/* eslint-disable no-unused-vars */
 var { createCanvas, loadImage, Image, registerFont } = require("canvas");
 
 var { get } = require("snekfetch");

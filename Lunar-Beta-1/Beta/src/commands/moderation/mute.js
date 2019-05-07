@@ -1,43 +1,45 @@
-var { Command } = require('discord.js-commando');
+/* eslint-disable linebreak-style */
+var { Command } = require("discord.js-commando");
 
 class MuteCommand extends Command {
-  constructor (client) {
+  constructor(client) {
     super (client, {
-      name: 'mute',
-      group: 'moderation',
+      name: "mute",
+      group: "moderation",
       memberName: "mute",
       guildOnly: true,
       clientPermissions: ["MANAGE_ROLES"],
       userPermissions: ["MANAGE_ROLES"],
-      description: 'Mute someone from your server!',
+      description: "Mute someone from your server!",
       args: [{
-        key: 'user',
+        key: "user",
         prompt: "Please type who you want mute!",
         type: "member"
       },
       {
-        key: 'time',
+        key: "time",
         prompt: "Please type the time to this user get unmuted!",
         type: "string"
       },
       {
-        key: 'reason',
-        prompt: 'Please type why you want ban this user!',
-        default: 'Reason not provided',
+        key: "reason",
+        prompt: "Please type why you want ban this user!",
+        default: "Reason not provided",
         type: "string"
       }]
     });
   }
-  async run (msg, { user, time, reason }) {
+  async run(msg, { user, time, reason }) {
     msg.channel.send("⚠️ You are about to mute `"+ user.user.tag +"` by "+ time +" minutes of your server! If you really want mute this user, react this message with ✅, or ❌ to cancel.").then(message => {
       message.react("✅");
       message.react("❌");
       var collector = message.createReactionCollector((r, u) => (r.emoji.name === "❌" || r.emoji.name === "✅") && u.id == msg.author.id);
-      collector.on('collect', (r) => {
+      collector.on("collect", (r) => {
         if (r.emoji.name === "✅") {
           try {
-            user.user.send("You got muted from "+ msg.guild.name +"!\n**Reason:** `"+ reason +"`\n**Time:** "+ time +" minute\(s\)");
-          } catch(a) {}
+            user.user.send("You got muted from "+ msg.guild.name +"!\n**Reason:** `"+ reason +"`\n**Time:** "+ time +" minutes)");
+          // eslint-disable-next-line no-empty
+          } catch (a) {}
           var muteRole = message.guild.roles.find("name", "Lunar Muted");
           if (!muteRole) {
             message.guild.createRole({

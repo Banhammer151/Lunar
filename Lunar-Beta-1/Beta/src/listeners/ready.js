@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
 var playing = require("../../playing.json");
-var botlist = require("./../util/BotList");
+//var botlist = require("./../util/BotList");
 
 exports.run = async (client) => {
   console.log("Lunar is online! Yay!");

@@ -1,9 +1,5 @@
 /* eslint-disable linebreak-style */
-/*
-  CanvasUtils - Tools for using with Canvas
-  By: SwitchbladeBot, a Utilily bot for Discord.
-  https://github.com/SwitchbladeBot/switchblade
-*/
+/* eslint-disable no-unused-vars */
 const fs = require("fs");
 var { get } = require("snekfetch");
 const { createCanvas, registerFont, Context2d, Image } = require("canvas");
@@ -62,7 +58,9 @@ module.exports = class CanvasUtils {
 
     Context2d.prototype.write = function(text, x, y, font = "12px \"Montserrat\"", align = ALIGN.BOTTOM_LEFT) {
       this.font = font;
+      // eslint-disable-next-line no-undef
       const { width, height } = self.measureText(this, font, text);
+      // eslint-disable-next-line no-undef
       const { x: realX, y: realY } = self.resolveAlign(x, y, width, height, align);
       this.fillText(text, realX, realY);
       return {

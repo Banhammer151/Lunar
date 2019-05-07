@@ -1,4 +1,5 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable no-unused-vars */
 const express = require("express");
 require("custom-env").env("dev");
 const catchAsync = fn => (

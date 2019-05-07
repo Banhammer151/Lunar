@@ -33,6 +33,7 @@ exports.run = async (oldmsg, msg) => {
             .addField("User: `"+ msg.author.tag +"("+ msg.author.id +")`", "Guild: `"+ msg.guild.name +"`");
           try {
             msg.client.users.get(user.id).send(embed);
+          // eslint-disable-next-line no-empty
           } catch (e) {}
           alreadyCheck.push(user.id);
         }

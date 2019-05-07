@@ -75,6 +75,18 @@ var serverSchema = new mongoose.Schema({
   shop: { 
     type: Array,
     default: []
+  },
+  welcomemsg:{
+    type: String,
+    default: "Welcome To The Server! {{user}}"
+  },
+  welcomeMsgEn:{
+    type: Boolean,
+    default: false
+  },
+  welcomeMsgChannel:{
+    type: String,
+    default: "no"
   }
 });
 
