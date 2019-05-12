@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
 var mongoose = require("mongoose");
-var { users, guilds } = require ("./MongoSchemas");
+var { users, guilds} = require ("./MongoSchemas");
 class UserDB {
   constructor(opt = {}) {
     if (!opt.uri) throw new ReferenceError("No Mongo URI passed to this class.");
@@ -58,6 +58,29 @@ class UserDB {
             _id: id
           });
           guild.save();
+          return res(guild);
+        }
+        res(d);
+      });
+    });
+  }
+  getRandomGuild(id) {
+    return new Promise (function( res, rej) {
+      guilds.aggregate([
+        { 
+          $project:{
+            _id: {$ne:["_id", id]},
+            globalChat: true                            
+              
+            
+          }
+        }], function(e, d) {
+        if (e) return rej(e);
+        if (!d) {
+          var guild = new guilds({
+            
+          });
+          //guild.save();
           return res(guild);
         }
         res(d);

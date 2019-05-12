@@ -1,12 +1,12 @@
 const { Command } = require("discord.js-commando");
 
 const vaporwaver = function(string) {
-    var array = string.split("")
-    return array.join("  ");
-}
+  var array = string.split("");
+  return array.join("  ");
+};
 
 class VaporwaveCommand extends Command {
-  constructor (client) {
+  constructor(client) {
     super (client, {
       name: "vaporwave",
       aliases: ["wave"],
@@ -16,8 +16,8 @@ class VaporwaveCommand extends Command {
       args: [{ key: "phrase", prompt: "What i should turn into vaporwave?", type: "string" }]
     });
   }
-  async run (msg, { phrase }) {
+  async run(msg, { phrase }) {
     msg.channel.send(vaporwaver(phrase));
   }
 }
-module.exports = VaporwaveCommand
+module.exports = VaporwaveCommand;

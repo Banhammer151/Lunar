@@ -29,7 +29,7 @@ exports.checkMention = async (client, msg) => {
   const modChannel = msg.guild.channels.find(c => c.name === conf.modLogChannel);
 
   // Ignore DMS, Webhooks, Mods, and break if no perms
-  if (!msg.guild || !msg.member || !msg.guild.me.hasPermission("BAN_MEMBERS") || !msg.member.bannable) return;
+  if (!msg.guild || !msg.member || !msg.guild.me.permissions.has("BAN_MEMBERS") || !msg.member.bannable) return;
   
   // Ignore if 1 mention and it's a bot (bot interaction)
   if (msg.mentions.users.size == 1 && msg.mentions.users.first().bot) return;

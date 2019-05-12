@@ -36,7 +36,7 @@ var userSchema = new mongoose.Schema({
   },
   background: {
     type: String,
-    default: "https://cdn.discordapp.com/attachments/446298803566542869/466264652087558165/IMG_20180625_224435.jpg"
+    default: "https://steamuserimages-a.akamaihd.net/ugc/915801223659353008/E8096A16B38A92351E3EE2F1B32BCD1C9A1CC8D5/"
   },
   marry: {
     type: String,
@@ -54,6 +54,14 @@ var serverSchema = new mongoose.Schema({
     default: false
   },
   eventLogChannel: {
+    type: String,
+    default: "no"
+  },
+  globalChat: {
+    type: Boolean,
+    default: false
+  },
+  globalChatChannel: {
     type: String,
     default: "no"
   },
@@ -88,7 +96,9 @@ var serverSchema = new mongoose.Schema({
     type: String,
     default: "no"
   }
+ 
 });
+
 
 var modelUsers = mongoose.model("users", userSchema);
 var modelGuilds = mongoose.model("guilds", serverSchema);

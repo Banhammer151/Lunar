@@ -21,7 +21,9 @@ if (cluster.isMaster) {
   // It will be initialized using express
   console.log(`Worker ${process.pid} started`);
 */
+require("dotenv").config();
 var Website = require("./src/util/WebsiteLoader");
+
 // eslint-disable-next-line no-unused-vars
 var LunarWebsite = new Website();
 var LunarManager = new ShardingManager("./Lunar.js", { totalShards: 2, respawn: true });

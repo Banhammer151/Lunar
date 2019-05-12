@@ -16,7 +16,8 @@ module.exports = (client, member) => {
       }
     }).then(()=>{
       if (settings.autorole3EN === "true") {
-        const role3 = member.guild.roles.find(r => r.name === settings.autorole3);
+        const guild = member.guild;
+        const role3 = guild.roles.find(r => r.name === settings.autorole3);
         member.addRole(role3).catch(console.error);
       }
     }).catch(error => {

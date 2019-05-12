@@ -22,4 +22,15 @@ exports.run = async (msg) => {
   if (msg.content.startsWith("<@"+ msg.client.user.id +">") && !msg.content.split(" ").slice(1).join(" ")) {
     msg.channel.send(":wave: | Heya, my name is Lunar.\nFor help, use `@Lunar help`\nFor info, use `@Lunar botinfo`");
   }
+  // var test = await msg.client.db.getRandomGuild(msg.guild.id);
+  // //console.log(test);
+  
+  // test.forEach(message =>{
+  //   console.log(message.globalChatChannel);
+  //   console.log(message._id);
+  //   msg.client.guilds.get(message._id).channels.get(message.globalChatChannel).send(msg.content);
+  //   // message.globalChatchannel.send(msg.content).catch(
+  //   //   console.error("There was a Problem with global chat in Message.js")
+  //   //);
+  // });
 };

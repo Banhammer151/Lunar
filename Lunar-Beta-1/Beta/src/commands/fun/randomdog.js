@@ -1,9 +1,9 @@
-const { Command } = require('discord.js-commando')
-const { RichEmbed } = require('discord.js')
-var sneky = require('snekfetch')
+const { Command } = require("discord.js-commando");
+const { RichEmbed } = require("discord.js");
+const fetch = require("node-fetch");
 
 class DogCommand extends Command {
-  constructor (client) {
+  constructor(client) {
     super (client, {
       name: "randomdog",
       aliases: ["dog", "rdog"],
@@ -17,14 +17,18 @@ class DogCommand extends Command {
       guildOnly: false
     });
   }
-  async run (msg) {
-   sneky.get("https://random.dog/woof.json").then(r => {
-      var embed = new RichEmbed()
-      .setTitle("🐶🐕")
-      .setColor(0xFF00F0)
-      .setImage(r.body.url)
-      return msg.channel.send(embed);
-    });
+  async run(msg) {
+    fetch("https://random.dog/woof.json").then(res => res.json())
+      .then(json => {
+        console.log(json.url);
+        var embed = new RichEmbed()
+          .setTitle("🐶🐕")
+          .setColor(0xFF00F0)
+          .setImage(json.url);
+        return msg.channel.send(embed);
+      });
+    
+    
   }
 }
 

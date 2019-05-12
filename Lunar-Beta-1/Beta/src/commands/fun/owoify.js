@@ -1,7 +1,7 @@
-const { Command } = require('discord.js-commando');
-const { get } = require('snekfetch')
+const { Command } = require("discord.js-commando");
+const { get } = require("snekfetch");
 class OwoCommand extends Command {
-  constructor (client) {
+  constructor(client) {
     super (client, {
       name: "owoify",
       aliases: ["owo"],
@@ -14,16 +14,16 @@ class OwoCommand extends Command {
       description: "Make owo text",
       guildOnly: false,
       args: [{
-        key: 'text',
-        type: 'string',
+        key: "text",
+        type: "string",
         prompt: "owo"
       }]
     });
   }
-  async run (msg, { text }) {
+  async run(msg, { text }) {
     get("https://nekos.life/api/v2/owoify?text="+ encodeURIComponent(text)).then(socorro => {
-      return msg.channel.send(socorro.body.owo)
-    }).catch(e => msg.channel.send("Try again."));
+      return msg.channel.send(socorro.body.owo);
+    }).catch(() => msg.channel.send("Try again."));
   }
 }
 

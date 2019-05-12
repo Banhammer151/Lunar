@@ -1,7 +1,7 @@
-const { Command } = require('discord.js-commando');
-const { get } = require('snekfetch')
+const { Command } = require("discord.js-commando");
+const fetch = require("node-fetch");
 class FactCommand extends Command {
-  constructor (client) {
+  constructor(client) {
     super (client, {
       name: "randomfact",
       aliases: ["fact"],
@@ -15,10 +15,14 @@ class FactCommand extends Command {
       guildOnly: false,
     });
   }
-  async run (msg) {
-    get("https://nekos.life/api/v2/fact").then(socorro => {
-      return msg.channel.send(socorro.body.fact)
-    }).catch(e => msg.channel.send("Try again."));
+  async run(msg) {
+    fetch("https://nekos.life/api/v2/fact").then(res => res.json())
+      .then(json => {        
+        return msg.channel.send(json.fact);
+      }).catch(() => msg.channel.send("Try again."));
+   
+      
+    
   }
 }
 

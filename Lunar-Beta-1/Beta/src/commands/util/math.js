@@ -1,8 +1,8 @@
-const { Command } = require('discord.js-commando');
-var math = require('mathjs');
+const { Command } = require("discord.js-commando");
+var math = require("mathjs");
 
 class MathCommand extends Command {
-  constructor (client) {
+  constructor(client) {
     super (client, {
       name: "math",
       aliases: ["calc"],
@@ -13,20 +13,20 @@ class MathCommand extends Command {
         duration: 5
       },
       description: "Do some math!",
-      examples: ['math 2+2', 'math 3/4', 'math (2+2)*2'],
+      examples: ["math 2+2", "math 3/4", "math (2+2)*2"],
       guildOnly: false,
       args: [{
-        key: 'op',
-        label: 'op',
+        key: "op",
+        label: "op",
         prompt: "Please enter your operation master!",
         type: "string"
       }]
     });
   }
-  async run (msg, args) {
+  async run(msg, args) {
     var op = args.op;
     try {
-    return msg.channel.send("`"+ op +"` = `"+ math.eval(op) +"`!");
+      return msg.channel.send("`"+ op +"` = `"+ math.eval(op) +"`!");
     } catch (e) {
       msg.channel.send("Invalid operation!");
     }

@@ -1,7 +1,7 @@
-const { Command } = require('discord.js-commando');
+const { Command } = require("discord.js-commando");
 
 class BalanceCommand extends Command {
-  constructor (client) {
+  constructor(client) {
     super (client, {
       name: "balance",
       aliases: ["money"],
@@ -12,20 +12,20 @@ class BalanceCommand extends Command {
         duration: 5
       },
       description: "Are you rich?",
-      examples: ['balance @user'],
+      examples: ["balance @user"],
       guildOnly: false,
       args: [{
-        key: 'user',
-        label: 'text',
+        key: "user",
+        label: "text",
         prompt: "Please enter the user",
         type: "user"
       }]
     });
   }
-  async run (msg, { user }) {
-    var id = user.id
-    var userConf = await msg.client.db.getUser(id)
-    msg.channel.send(`\`${user.tag}\` has ${userConf.money} coins!`)
+  async run(msg, { user }) {
+    var id = user.id;
+    var userConf = await msg.client.db.getUser(id);
+    msg.channel.send(`\`${user.tag}\` has ${userConf.money} coins!`);
   }
 }
 

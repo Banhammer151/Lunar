@@ -1,11 +1,11 @@
-const { Command } = require('discord.js-commando')
-const { RichEmbed } = require('discord.js');
+const { Command } = require("discord.js-commando");
+const { RichEmbed } = require("discord.js");
 var cats = require("cats-js");
 var c = new cats();
  
 
 class CatCommand extends Command {
-  constructor (client) {
+  constructor(client) {
     super (client, {
       name: "randomcat",
       aliases: ["cat", "rcat"],
@@ -19,12 +19,12 @@ class CatCommand extends Command {
       guildOnly: false
     });
   }
-  async run (msg) {
+  async run(msg) {
     c.get().then((url) => {
       var embed = new RichEmbed()
-      .setTitle("😻🐈")
-      .setColor(0xFF00F0)
-      .setImage(url.images.image.url)
+        .setTitle("😻🐈")
+        .setColor(0xFF00F0)
+        .setImage(url.images.image.url);
       return msg.channel.send(embed);
     });
   }

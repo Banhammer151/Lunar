@@ -19,3 +19,5 @@ Lunar-Beta-1/stable/util/encryption/lunar-labs_dev.crt
 Lunar-Beta-1/stable/util/encryption/private.key
 Lunar-Beta-1/stable/util/encryption/lunar-labs_dev.csr
 Lunar-Beta-1/stable/util/encryption/USERTrustRSAAddTrustCA.crt
+Lunar-Beta-1/Beta/.env
+Lunar-Beta-1/.eslintrc.json

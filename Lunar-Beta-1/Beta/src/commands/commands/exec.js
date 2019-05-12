@@ -10,6 +10,7 @@ class ExecCommand extends Command {
       group: "commands",
       memberName: "exec",
       description: "Run something on terminal",
+      ownerOnly: true,
       guildOnly: false,
       args: [{
         key: "text",

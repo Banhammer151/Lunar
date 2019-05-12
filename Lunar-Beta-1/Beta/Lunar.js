@@ -4,7 +4,7 @@ const path = require("path");
 var { readdir } = require("fs");
 const MongoClient = require("mongodb").MongoClient;
 const MongoDBProvider = require("commando-provider-mongo");
-require("custom-env").env("dev");
+require("dotenv").config({path:"./.env"});
 
 console.log("Loading Lunar client...");
 console.log("Loading CanvasCommand client (buffers and fonts)...");
@@ -23,7 +23,7 @@ var client = new Client({
   disabledEvents: ["TYPING_START", "TYPING_STOP"]
 });
 
-client.setProvider(MongoClient.connect("mongodb://localhost:27017/myproject").then(cliente => new MongoDBProvider(cliente, "Lunar"))).catch(console.error);
+client.setProvider(MongoClient.connect("mongodb://localhost:27017/myproject", { useNewUrlParser: true }).then(cliente => new MongoDBProvider(cliente, "Lunar"))).catch(console.error);
 
 client.login(process.env.TOKEN);
 
@@ -32,7 +32,8 @@ client.registry.registerGroups([
   ["fun", "Funny"],
   ["test", "Testing"],
   ["misc", "Misc"],
-  ["social", "Social"]
+  ["social", "Social"],
+  ["roleplaying", "Roleplaying"]
 ]).registerDefaultTypes()
   .registerDefaultGroups()
   .registerDefaultCommands({ "ping": false, "reload": false, "help": false})
