@@ -84,6 +84,10 @@ var serverSchema = new mongoose.Schema({
     type: Array,
     default: []
   },
+  iam: { 
+    type: Array,
+    default: []
+  },
   welcomemsg:{
     type: String,
     default: "Welcome To The Server! {{user}}"

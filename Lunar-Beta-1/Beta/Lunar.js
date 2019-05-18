@@ -23,8 +23,8 @@ var client = new Client({
   disabledEvents: ["TYPING_START", "TYPING_STOP"]
 });
 
-client.setProvider(MongoClient.connect("mongodb://localhost:27017/myproject", { useNewUrlParser: true }).then(cliente => new MongoDBProvider(cliente, "Lunar"))).catch(console.error);
-
+client.setProvider(MongoClient.connect(`mongodb://${process.env.MUSER}:${process.env.MPWD}@localhost:27017/myproject?authSource=admin`, { useNewUrlParser: true }).then(cliente => new MongoDBProvider(cliente, "Lunar"))).catch(console.error);
+console.error(`${process.env.MUSER}:${process.env.MPWD}`);
 client.login(process.env.TOKEN);
 
 client.registry.registerGroups([

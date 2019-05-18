@@ -13,7 +13,7 @@ exports.run = async (client) => {
     z++;
   }, 120000);
   var Database = require("./../util/UserDB");
-  var database = new Database({ uri: "mongodb://localhost:27017/myproject" }, { useNewUrlParser: true });
+  var database = new Database({ uri: `mongodb://${process.env.MUSER}:${process.env.MPWD}@localhost:27017/myproject?authSource=admin` }, { useNewUrlParser: true });
   client.db = database;
   //console.log("Posting stats to DBL and Listcord");
   //var botlistClient = new botlist({ client: client });
