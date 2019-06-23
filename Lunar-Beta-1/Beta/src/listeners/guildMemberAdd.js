@@ -1,4 +1,6 @@
 /* eslint-disable linebreak-style */
+// eslint-disable-next-line no-unused-vars
+var { DateTime } = require("luxon");
 var { RichEmbed } = require("discord.js");
 exports.run = async (membr) => {
   
@@ -13,11 +15,13 @@ exports.run = async (membr) => {
     membr.client.guilds.get(membr.guild.id).channels.get(guildConf.eventLogChannel).send(embedEventolog);
   }
   if (guildConf.welcomeMsgEn == true) {
-    const welcomemssg = guildConf.welcomemsg.replace("{{user}}", membr.user.username);
+   
+    const welcomemssg = guildConf.welcomemsg.replace("{{user}}", membr.user.username).replace("{{pingme}}", membr);
     var embedWelcomeMessage = new RichEmbed()
       .setColor(0xFF00F0)
       .setTitle("New user joined!")
-      .addField("Username", `${welcomemssg}`)
+      .addField(`${membr}`, `${welcomemssg}`)
+      .addField("Account Age", `${membr.user.createdAt}`)
       .setAuthor(`${membr.user.username}`)
       .setThumbnail(membr.user.displayAvatarURL);
     membr.client.guilds.get(membr.guild.id).channels.get(guildConf.welcomeMsgChannel).send(embedWelcomeMessage);

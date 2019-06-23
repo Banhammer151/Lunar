@@ -1,7 +1,7 @@
-const { Command } = require('discord.js-commando');
+const { Command } = require("discord.js-commando");
 
 class SayCommand extends Command {
-  constructor (client) {
+  constructor(client) {
     super (client, {
       name: "say",
       aliases: ["parrot"],
@@ -12,19 +12,19 @@ class SayCommand extends Command {
         duration: 5
       },
       description: "Make me say something",
-      examples: ['say I\'m kawaii!', 'say Hey, master!', 'say Hello World'],
+      examples: ["say I'm kawaii!", "say Hey, master!", "say Hello World"],
       guildOnly: false,
       args: [{
-        key: 'text',
-        label: 'text',
+        key: "text",
+        label: "text",
         prompt: "Please enter what i should say!",
         type: "string"
       }]
     });
   }
-  async run (msg, args) {
+  async run(msg, args) {
     var phase = args.text;
-    return msg.say(phase)
+    return msg.say(phase);
   }
 }
 

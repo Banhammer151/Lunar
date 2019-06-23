@@ -1,6 +1,8 @@
 /* eslint-disable linebreak-style */
 exports.run = async (msg) => {
   var guildConf = await msg.client.db.getGuild(msg.guild.id);
+  //var getbumconf = await msg.client.db.getBump(msg.guild.id);
+  //console.log(getbumconf);
   if (guildConf.bwf.length > 0) {
     if (msg.author.bot || msg.guild.owner == msg.author) return;
     var alreadycheck = [];
@@ -19,6 +21,21 @@ exports.run = async (msg) => {
       }
     });
   }
+  
+  const id = msg.author.id;
+  var userdbid = await msg.client.db.getUser(id);
+  //userdbid.exp + 1;
+  // userdbid.xp++;
+  // if  (userdbid.xp < 100) {
+  //   userdbid.xp++;
+  //   msg.client.db.writeUser(id, userdbid);
+  // }
+  // if (userdbid.xp >= 100) {
+  //   userdbid.level++;
+  //   userdbid.xp = 0;
+  //   msg.client.db.writeUser(id, userdbid);
+  //   msg.reply("Congratulations, you level up");
+  // }
   if (msg.content.startsWith("<@"+ msg.client.user.id +">") && !msg.content.split(" ").slice(1).join(" ")) {
     msg.channel.send(":wave: | Heya, my name is Lunar.\nFor help, use `@Lunar help`\nFor info, use `@Lunar botinfo`");
   }
@@ -33,4 +50,5 @@ exports.run = async (msg) => {
   //   //   console.error("There was a Problem with global chat in Message.js")
   //   //);
   // });
+
 };

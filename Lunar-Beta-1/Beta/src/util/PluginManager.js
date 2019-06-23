@@ -6,7 +6,7 @@ class PluginLoader {
   constructor() {}
   async loadPlugin(name) {
     try {
-      var pluginRequire = require("/app/src/plugins/"+ name +".js");
+      var pluginRequire = require("/src/plugins/"+ name +".js");
       var plugin = new pluginRequire();
       plugin.main();
       loadedPlugins.push(plugin.name +"@"+ plugin.version);
@@ -18,7 +18,7 @@ class PluginLoader {
   async loadPlugins() {
     console.log("Loading plugins...");
     try {
-      fs.readdirSync("/app/src/plugins/", (err, plugins) => {
+      fs.readdirSync("/src/plugins/", (err, plugins) => {
         if (err) console.warn(err);
         if (plugins.length <= 0) return console.log("No plugins found...");
         console.log("Loading "+ plugins.length +" plugins...");

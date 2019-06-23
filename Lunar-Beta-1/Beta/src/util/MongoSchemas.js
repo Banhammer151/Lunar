@@ -14,6 +14,10 @@ var userSchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
+  level:{
+    type: Number,
+    default: 0
+  },
   money: {
     type: Number,
     default: 0
@@ -45,10 +49,50 @@ var userSchema = new mongoose.Schema({
   banned: {
     type: Boolean,
     default: false
-  }
-});
+  },
+  nextBump: {
+    type: String,
+    default: "bypassMe"
+  },
 
+});
 var serverSchema = new mongoose.Schema({
+  bumpMessage: {
+    type: String,
+    default: "nothing to see here"
+  },
+  bumpChannel:{
+    type: String,
+    default: "no"
+  },
+  bumpEn:{
+    type: Boolean,
+    default: false
+  },
+  bumpdesc:{
+    type: String,
+    default: "nothing to see here",
+  },
+  bumpServer:{
+    type: String,
+    default: "none",
+  },
+  bumpinvite:{
+    type: String,
+    default:"discord.gg",
+  },
+  bumpImage:{
+    type:String,
+    default: "none",
+  },
+  bumpMembers:{
+    type:String,
+    default: "0",
+  },
+  bumpLast:{
+    type:String,
+    default: "bypassme",
+  },
   eventLog: {
     type: Boolean,
     default: false
@@ -103,9 +147,10 @@ var serverSchema = new mongoose.Schema({
  
 });
 
-
+//var modelBump = mongoose.model ("bump", bumpSchema);
 var modelUsers = mongoose.model("users", userSchema);
 var modelGuilds = mongoose.model("guilds", serverSchema);
 
+//exports.bump = modelBump;
 exports.users = modelUsers;
 exports.guilds = modelGuilds;

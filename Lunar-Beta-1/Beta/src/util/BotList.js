@@ -7,11 +7,11 @@ var shard = new Shard();
 var app = require("./WebsiteLoader").app;
 
 class BotList {
-  // constructor(opt = {}) {
-  //   if (!opt.client) throw new ReferenceError("No client passed to the class.");
-  //   this.client = opt.client;
-  //   this.init(this.client);
-  // }
+  constructor(opt = {}) {
+    if (!opt.client) throw new ReferenceError("No client passed to the class.");
+    this.client = opt.client;
+    this.init(this.client);
+  }
   // postListcord(client) {
   //   sneky.post("https://listcord.com/api/bot/"+ client.user.id +"/guilds")
   //     .set({ Authorization: process.env.LISTCORDTOKEN })
@@ -22,19 +22,19 @@ class BotList {
   //       console.log("Updated Listcord stats.");
   //     });
   // }
-  // async init(client) {
-  //   console.log("Loading BotList class...");
+  async init(client) {
+    console.log("Loading BotList class...");
     
-  //   // DBL area
-  //   this.dbl =  new dblapi(process.env.DBLTOKEN, { statsInterval: 900000 }, client);
-  //   this.dbl.on("error", (err) => {
-  //     console.error(err);
-  //   });
-  //   this.dbl.on("posted", () => {
-  //     console.log("Posted stats to DBL.");
-  //   });
-  //   client.dbl = this.dbl;
-  //   // BOTSPW area
+    // DBL area
+    this.dbl =  new dblapi(process.env.DBLTOKEN, { statsInterval: 900000 }, client);
+    this.dbl.on("error", (err) => {
+      console.error(err);
+    });
+    this.dbl.on("posted", () => {
+      console.log("Posted stats to DBL.");
+    });
+    client.dbl = this.dbl;
+    //   // BOTSPW area
     
     
   //   // LISTCORD area
@@ -43,7 +43,7 @@ class BotList {
   //     this.postListcord(client);
   //   }, 900000);
   //   console.log("Loaded BotList module.");
-  // }
+  }
 }
 
 module.exports = BotList; 
