@@ -10,7 +10,7 @@ node_js:
 before_install:
   - sudo apt-get update
   - sudo apt-get install build-essential
-  - cd Beta && npm i
+  - npm i
 script:
   - node Lunar.js
 after_success:
