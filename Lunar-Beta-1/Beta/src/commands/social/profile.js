@@ -9,11 +9,11 @@ class ProfileCommand extends Command {
       name: "profile",
       description: "Get the profile of someone",
       group: "social",
-      memberName: "profile",
-      args: [{ key: "user", type: "user", prompt: "Mention someone!" }]
+      memberName: "profile"
     });
   }
-  async run(msg, { user }) {
+  async run(msg, ) {
+    const user = msg.mentions.users.first() || msg.author;
     var eu = await msg.client.db.getUser(user.id);
     pfp(user, eu).then(a => {
       var b = new Attachment(a, "profile-"+ user.username +".jpg");
