@@ -10,9 +10,9 @@ node_js:
 before_install:
   - sudo apt-get update
   - sudo apt-get install build-essential
-  - cd src && npm i
+  - cd Beta && npm i
 script:
-  - node index.js
+  - node Lunar.js
 after_success:
   - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
   - chmod +x send.sh
