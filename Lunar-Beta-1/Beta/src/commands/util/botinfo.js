@@ -17,7 +17,7 @@ class BotInfoCommand extends Command {
       .setTitle(":wave: | Heya, My name is Lunar!")
       .setDescription("I'm a simple bot that do everything for you. My objective is be the most simple possible and fast. I'm using the Commando Framework with discord.js to interact with Discord and Canvas to manipulate images.")
       //.addField("Link to Listcord", "https://listcord.com/bot/461552010240589824")
-      //.addField("Link to Discord Bots List", "https://discordbots.org/bot/461552010240589824")
+      .addField("Link to Discord Bots List", "https://discordbots.org/bot/480838566470221854")
       .addField("More info? Like, RAM memory or servers?", "Use !stats")
       .setColor(0xFF00F0);
     msg.channel.send(embed);

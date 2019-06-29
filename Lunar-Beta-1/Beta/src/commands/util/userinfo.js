@@ -9,16 +9,11 @@ class UserInfoCommand extends Command {
       group: "util",
       memberName: "userinfo",
       description: "Get some userinfo",
-      guildOnly: true,
-      args: [{
-        key: "member",
-        label: "user",
-        type: "member",
-        prompt: "Mention who do you want see, master!"
-      }]
+      guildOnly: true      
     });
   }
-  async run(msg, { member }) {
+  async run(msg) {
+    var member = msg.mentions.users.first() || msg.author;
     var user = member.user;
     var userStats = user.presence.status.split("");
     userStats[0] = userStats[0].toUpperCase();

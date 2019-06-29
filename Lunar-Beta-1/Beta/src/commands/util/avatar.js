@@ -10,16 +10,12 @@ class AvatarCommand extends Command {
       group: "util",
       memberName: "avatar",
       description: "You are so beautiful...",
-      guildOnly: false,
-      args: [{
-        key: "member",
-        label: "user",
-        type: "member",
-        prompt: "Mention who do you want see, master!"
-      }]
+      guildOnly: false
+  
     });
   }
-  async run(msg, { member }) {
+  async run(msg) {
+    var member = msg.mentions.users.first() || msg.author;
     var user = member.user;
     var embed = new RichEmbed().setTitle(user.username +"'s avatar").setImage(user.avatarURL).setColor(0xFF0090);
     msg.channel.send(embed);

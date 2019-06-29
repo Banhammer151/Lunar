@@ -1,6 +1,5 @@
 /* eslint-disable linebreak-style */
 const { Command } = require("discord.js-commando");
-var snek = require("snekfetch");
 class RoleAllCommand extends Command {
   constructor(client) {
     super (client, {
@@ -25,19 +24,13 @@ class RoleAllCommand extends Command {
     });
   }
   async run(msg, { role }) {
-    // snek.get("https://listcord.com/api/bot/"+ msg.client.user.id +"/votes").then(async egito => {
-    //   function checkVote(arr) {
-    //     var meDeUmNome = arr.length - 1;
-    //     // eslint-disable-next-line no-unused-vars
-    //     return new Promise(async function(res, rej) {
-    //       for (var i = 0; i < arr.length; i++) {
-    //         if (arr[i].id == msg.author.id)res(true);
-    //         if (i == meDeUmNome) res(false);
-    //       }
-    //     });
-    //   }
-    //   var voted = await checkVote(egito.body);
-    //   if (!voted) return msg.channel.send("Hey! In order to use this command, please upvote me on Listcord! <:listcord:462350611854262282>\nhttps://listcord.com/bot/461552010240589824");
+    const DBL = require("dblapi.js");
+    const dbl = new DBL("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4MDgzODU2NjQ3MDIyMTg1NCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTU4MjgyNDkxfQ.pkZ3MMsSaJVObpD9yfqB6NO7HAa-xGJlUaAX04SGufk", msg.client);
+    const voted = await dbl.hasVoted(msg.author.id).then(voted => {
+      if (voted) console.log(`${msg.author.username} has voted!!!`);
+    });
+    //var voted = await checkVote(egito.body);
+    if (!voted) return msg.channel.send("Hey! In order to use this command, please upvote me on DiscordBots.org! <:dblAdmin:483994951961673738>\nhttps://discordbots.org/bot/480838566470221854");
   
     var LunarRole = msg.guild.members.get(msg.client.user.id).highestRole;
     if (role.position >= LunarRole.position) return msg.channel.send("I can't apply that role: This role is higher than mine or equal! Please give me a role better than the role that you want apply.");
