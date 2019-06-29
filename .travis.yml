@@ -1,9 +1,11 @@
+
 language: node_js
-node_js:
-  - "10"
+node_js: 
+  - "stable"
 cache:
   directories:
-    - node_modules
+    - "node_modules"
+
 notifications:
   email: false
 node_js:
@@ -13,5 +15,5 @@ before_install:
   - sudo apt-get install build-essential
   - cd Beta && npm i
 script:
-  - node Lunar.js
+  - npm test
 services: mongodb
