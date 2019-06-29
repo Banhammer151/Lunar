@@ -25,7 +25,7 @@ class RoleAllCommand extends Command {
   }
   async run(msg, { role }) {
     const DBL = require("dblapi.js");
-    const dbl = new DBL("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4MDgzODU2NjQ3MDIyMTg1NCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTU4MjgyNDkxfQ.pkZ3MMsSaJVObpD9yfqB6NO7HAa-xGJlUaAX04SGufk", msg.client);
+    const dbl = new DBL(process.env.DBLTOKEN, msg.client);
     const voted = await dbl.hasVoted(msg.author.id).then(voted => {
       if (voted) console.log(`${msg.author.username} has voted!!!`);
     });
