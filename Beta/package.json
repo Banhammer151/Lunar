@@ -4,7 +4,8 @@
   "description": "Discord.js Commando Bot.",
   "main": "lunarShardingManager.js",
   "scripts": {
-    "start": "pm2 kill && pm2 start lunarShardingManager.js"
+    "start": "node lunarShardingManager.js",
+    "test":  "node Lunar.js"
   },
   "dependencies": {
     "btoa": "^1.2.1",
